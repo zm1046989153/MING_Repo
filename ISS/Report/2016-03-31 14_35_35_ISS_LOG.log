@@ -1,0 +1,5 @@
+[2016-03-31 14:35:35] test_OnlinePromotion.py [Test Case:test_OnlinePromotion] [line:29]INFO:~~~线上促销模块测试~~~
+[2016-03-31 14:35:35] test_OnlinePromotion.py [Test Case:<module>] [line:695]INFO:test_OnlinePromotion start--
+[2016-03-31 14:35:42] test_OnlinePromotion.py [Test Case:to_OnlinePromotion] [line:54]INFO:等待页面刷新···
+[2016-03-31 14:35:43] test_OnlinePromotion.py [Test Case:to_OnlinePromotion] [line:56]INFO:刷新完成！！！
+[2016-03-31 14:35:58] test_OnlinePromotion.py [Test Case:<module>] [line:729]INFO:test_OnlinePromotion end--

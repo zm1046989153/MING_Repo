@@ -1,0 +1,8 @@
+[2016-03-31 11:15:35] test_OnlinePromotion.py [Test Case:test_OnlinePromotion] [line:29]INFO:~~~线上促销模块测试~~~
+[2016-03-31 11:15:35] test_OnlinePromotion.py [Test Case:<module>] [line:639]INFO:test_OnlinePromotion start--
+[2016-03-31 11:15:42] test_OnlinePromotion.py [Test Case:to_OnlinePromotion] [line:54]INFO:等待页面刷新···
+[2016-03-31 11:15:43] test_OnlinePromotion.py [Test Case:to_OnlinePromotion] [line:56]INFO:刷新完成！！！
+[2016-03-31 11:15:57] test_OnlinePromotion.py [Test Case:test_8modify_SuitObject] [line:545]INFO:保存成功！
+[2016-03-31 11:15:59] test_OnlinePromotion.py [Test Case:test_8modify_SuitObject] [line:555]INFO:等待适用对象列表页刷新···
+[2016-03-31 11:16:09] isspublic.py [Test Case:isRefreshed] [line:60]ERROR:当前界面未刷新
+[2016-03-31 11:16:09] test_OnlinePromotion.py [Test Case:<module>] [line:666]INFO:test_OnlinePromotion end--

@@ -1,0 +1,6 @@
+[2016-03-31 13:36:45] test_OnlinePromotion.py [Test Case:test_OnlinePromotion] [line:29]INFO:~~~线上促销模块测试~~~
+[2016-03-31 13:36:45] test_OnlinePromotion.py [Test Case:<module>] [line:648]INFO:test_OnlinePromotion start--
+[2016-03-31 13:36:52] test_OnlinePromotion.py [Test Case:to_OnlinePromotion] [line:54]INFO:等待页面刷新···
+[2016-03-31 13:36:53] test_OnlinePromotion.py [Test Case:to_OnlinePromotion] [line:56]INFO:刷新完成！！！
+[2016-03-31 13:37:07] test_OnlinePromotion.py [Test Case:test_8modify_AddSuitObject] [line:555]INFO:ORA-01400:无法将NULL插入
+[2016-03-31 13:37:07] test_OnlinePromotion.py [Test Case:<module>] [line:676]INFO:test_OnlinePromotion end--
