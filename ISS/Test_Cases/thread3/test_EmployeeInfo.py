@@ -85,6 +85,7 @@ class test_EmployeeInfo(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#stmPersonHdToolbar  a.easyui-linkbutton.findPersonButton').click()
+            WebWait(driver,"#content > div.tabs-panels.tabs-panels-noborder > div:nth-child(2) > div > div > div.panel.layout-panel.layout-panel-center div.datagrid-mask-msg")
             sleep(1)
 
             
@@ -148,12 +149,14 @@ class test_EmployeeInfo(unittest.TestCase):
             
             sleep(1)
             
-             #获取断言信息
+            #获取断言信息
             
             success=driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div:nth-child(2)")
             tip_text=success.text
             #print tip_text
             log.info(tip_text)
+            #截图断言信息
+            screenshot(driver)
             
             #确定,关闭提示框
             driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a > span > span").click()
@@ -250,18 +253,19 @@ class test_EmployeeInfo(unittest.TestCase):
         
 
         #所在区域
-        
         driver.find_element_by_css_selector("#stmPersonHdTForm tr:nth-child(2) > td:nth-child(4) > span > input.combo-text.validatebox-text").click()
         sleep(1)
-        findCss(driver,"body > div:nth-child(41) > div.panel-header.panel-header-noborder.window-header > div.panel-tool > a")
+       
         
        
         #左侧菜单树点击选择地区范围
-        driver.find_element_by_css_selector("ul#undefined_1_ul a#undefined_3_a").click()
+        #print findCss(driver,"body  div.panel-body.panel-body-noborder.window-body.panel-noscroll  div.panel.layout-panel.layout-panel-west > div.panel-header.panel-header-noborder > div.panel-title").text
+
+        driver.find_element_by_css_selector("body div.panel-body.panel-body-noborder.window-body.panel-noscroll  div.content_wrap > div.zTreeDemoBackground.left > ul.ztree.destinationTree > li > a>span:nth-child(2)").click()
         sleep(0.5)
 
         #点击选择地区
-        driver.find_element_by_css_selector("body   div.panel-body.panel-body-noborder.window-body.panel-noscroll  table.datagrid-btable td[field='ck']").click()
+        driver.find_element_by_css_selector("body  div.panel-body.panel-body-noborder.window-body.panel-noscroll  table.datagrid-btable td[field='ck']").click()
         sleep(0.5)
 
         #保存
@@ -764,7 +768,6 @@ class test_EmployeeInfo(unittest.TestCase):
         driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a > span > span").click()
 
         
-        
         #再次查找
         self.searchbycode(code)
 
@@ -821,7 +824,7 @@ if __name__=='__main__':
     #suite.addTest(test_EmployeeInfo('test_8modify_Storedistribution'))#门店分配
     
     
-    #suite.addTest(test_EmployeeInfo('test_9adelete_Employee'))#员工删除
+    suite.addTest(test_EmployeeInfo('test_9adelete_Employee'))#员工删除
    
     
     

@@ -234,12 +234,6 @@ class test_SizeSetting(unittest.TestCase):
         driver.find_element_by_css_selector("#stmSizeAccordion table.datagrid-btable td[field='ck']").click()
         sleep(0.5)
 
-        #判断页面是否刷新
-        log.info(u"等待页面刷新···")
-        isRefreshed(driver,"#stmSizeAccordion table.datagrid-btable td[field='ck']")
-        
-        log.info(u"刷新完成！！！")
-
         #修改
         self.clickButton(u'修改')
 
@@ -254,13 +248,15 @@ class test_SizeSetting(unittest.TestCase):
 
         #保存
         self.clickButton(u'保存')
+        sleep(0.5)
+
         #再次查找
-        self.clickButton(u'查找')
+        self.clickButton(u"查找")
+        sleep(0.5)
         
         #断言是否和修改的一致
-        nas=driver.find_elements_by_css_selector("#stmSizeAccordion table.datagrid-btable td[field='fdName']")
-        #print name
-        searchAssert(self,nas,name)
+        self.assertEqual(name,driver.find_element_by_css_selector("#stmSizeAccordion table.datagrid-btable td[field='fdName']").text)
+        
 
 
     def test_4delete_Size(self):
@@ -304,17 +300,17 @@ if __name__=='__main__':
     #建立测试集
     suite=unittest.TestSuite()
     
-    #suite.addTest(test_SizeSetting('test_0add_Size'))#添加颜色
-    suite.addTest(test_SizeSetting('test_1search_BySizeCode'))#按尺码编码查找
+    suite.addTest(test_SizeSetting('test_0add_Size'))#添加颜色
+    #suite.addTest(test_SizeSetting('test_1search_BySizeCode'))#按尺码编码查找
     #suite.addTest(test_SizeSetting('test_2search_BySizeName'))#按尺码名称查找
-    #suite.addTest(test_SizeSetting('test_3modify_Size'))#修改尺码
-    #suite.addTest(test_SizeSetting('test_4delete_Size'))#删除尺码
+    suite.addTest(test_SizeSetting('test_3modify_Size'))#修改尺码
+    suite.addTest(test_SizeSetting('test_4delete_Size'))#删除尺码
     
     
     #执行测试
     runner=unittest.TextTestRunner()
-    #runner.run(suite)
+    runner.run(suite)
 
-    unittest.main()
+    #unittest.main()
         
         

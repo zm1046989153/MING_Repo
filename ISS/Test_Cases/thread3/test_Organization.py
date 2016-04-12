@@ -169,16 +169,35 @@ class test_Organization(unittest.TestCase):
         
         findCss(driver,"#ModifyDptForm  tr:nth-child(4) > td:nth-child(2) > span > input").click()
         sleep(1)
-        log.info(u"等待页面刷新···")
-        isRefreshed(driver,"ul.ztree.destinationTree li:nth-child(1) > ul.level0 > li:nth-child(1) > a > span:nth-child(2)")
+        try:
+            
+            findCss(driver,"ul.ztree.destinationTree li:nth-child(1) > ul.level0 > li:nth-child(1) > a > span:nth-child(2)").click()
+            sleep(0.5)
+            
+        except:
+            #所属地区选择界面无法刷新时，退出界面重新进入
+            #点击取消
+            findCss(driver,"body div.panel-body.panel-body-noborder.window-body.panel-noscroll  div.panel.layout-panel.layout-panel-center div.panel.layout-panel.layout-panel-south > div > a.easyui-linkbutton.cancelButton > span > span").click()
+            sleep(0.5)
+            #确定
+            findCss(driver,"body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a:nth-child(1) > span > span").click()
+      
+            #再次进入地区选择界面
+            findCss(driver,"#ModifyDptForm  tr:nth-child(4) > td:nth-child(2) > span > input").click()
+            sleep(1)
+            
+            #判断页面是否刷新
+            log.info(u"等待页面刷新···")
+            isRefreshed(driver,"ul.ztree.destinationTree li:nth-child(1) > ul.level0 > li:nth-child(1) > a > span:nth-child(2)")
         
-        log.info(u"刷新完成！！！")
-        
-        findCss(driver,"ul.ztree.destinationTree li:nth-child(1) > ul.level0 > li:nth-child(1) > a > span:nth-child(2)").click()
-        sleep(0.5)
+            log.info(u"刷新完成！！！")
 
+            findCss(driver,"ul.ztree.destinationTree li:nth-child(1) > ul.level0 > li:nth-child(1) > a > span:nth-child(2)").click()
+            sleep(0.5)
+            
         findCss(driver,"body div.panel-body.panel-body-noborder.window-body.panel-noscroll > div > div.panel.layout-panel.layout-panel-center table.datagrid-btable td[field='ck']").click()
         sleep(0.5)
+         
 
         #选择
         findCss(driver,"body  div.panel-body.panel-body-noborder.window-body.panel-noscroll > div > div.panel.layout-panel.layout-panel-center  a.easyui-linkbutton.saveButton> span > span > span").click()

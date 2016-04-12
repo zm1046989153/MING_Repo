@@ -68,6 +68,8 @@ class test_SKUSet(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#masPartDtSkuToolbar  a.easyui-linkbutton.findButton > span > span').click()
+            
+            WebWait(driver,"#masPartDtSkuAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msg")
             sleep(1)
 
             
@@ -79,6 +81,7 @@ class test_SKUSet(unittest.TestCase):
         elif button==u'查看' or button=='view':
             #点击“查看”按钮
             driver.find_element_by_css_selector('#masPartDtSkuToolbar  a.easyui-linkbutton.viewButton > span > span').click()
+            WebWait(driver,"#masPartDtSkuForm > div.datagrid-mask-msg")
             sleep(1)
             edl=driver.find_element_by_css_selector("#masPartDtSkuForm > div > a.easyui-linkbutton.saveButton > span > span > span")
             #print edl.text
@@ -121,9 +124,11 @@ class test_SKUSet(unittest.TestCase):
             #编辑界面，点击保存按钮
 
             driver.find_element_by_css_selector("#masPartDtSkuForm > div > a.easyui-linkbutton.saveButton > span > span > span").click()
-            sleep(0.5)
+            WebWait(driver,"#masPartDtSkuForm > div.datagrid-mask-msg")
+            sleep(1)
             
-             #获取断言信息
+            
+            #获取断言信息
             
             success=driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div:nth-child(2)")
             tip_text=success.text
@@ -180,7 +185,6 @@ class test_SKUSet(unittest.TestCase):
         #保存
         self.clickButton(u'保存')
         
-
         """
          
     def test_1search_ByComCode(self):
@@ -197,7 +201,7 @@ class test_SKUSet(unittest.TestCase):
         for de in des:
             if de.text!='':
                 code=de.text
-                print code
+                #print code
                 break
             continue
         #print code
@@ -228,17 +232,21 @@ class test_SKUSet(unittest.TestCase):
         self.to_SKUset()
         
         #输入要查找的尺寸
-        driver.find_element_by_css_selector("#masPartDtSkuToolbar > span:nth-child(4) > input.combo-text.validatebox-text").click()
-        sleep(1)
+        
+        #读取列表中的一个尺寸
         ses=driver.find_elements_by_css_selector("#masPartDtSkuAccordion table.datagrid-btable td[field='sizeKey']")
         for se in ses:
             if se.text!='':
                 size=se.text
-                print size
+                #print size
                 break
             continue
                 
         #print size
+        #点击尺寸输入框
+        driver.find_element_by_css_selector("#masPartDtSkuToolbar > span:nth-child(4) > input.combo-text.validatebox-text").click()
+        sleep(1)
+        #选择读取的尺寸，查找
         szs=driver.find_elements_by_css_selector("body > div:nth-child(21) > div  div.combobox-item")
         n=0
         for sz in szs:
@@ -255,7 +263,8 @@ class test_SKUSet(unittest.TestCase):
 
         #断言
         szs=driver.find_elements_by_css_selector("#masPartDtSkuAccordion > div:nth-child(1) > div.panel-body.accordion-body table.datagrid-btable td[field='sizeKey']")
-        
+        #for sz in szs:
+           # print sz.text
         searchAssert(self,szs,size)
 
         
@@ -280,7 +289,7 @@ class test_SKUSet(unittest.TestCase):
         
         
    
-
+    """
     def test_4modify_SKUSet(self):
         u'''修改SKU'''
         driver=self.driver
@@ -299,7 +308,7 @@ class test_SKUSet(unittest.TestCase):
 
         #点击保存
         self.clickButton(u'保存')
-
+        """
     
     def tearDown(self):
         log.info(u"该条用例执行完毕！！！")
@@ -315,16 +324,16 @@ if __name__=='__main__':
     log.info('test_EmployeeInfo start--')
     suite=unittest.TestSuite()
     
-    suite.addTest(test_SKUSet('test_0add_SKU'))#添加SKU
-    suite.addTest(test_SKUSet('test_1search_ByComCode'))#按商品编码查找
+    #suite.addTest(test_SKUSet('test_0add_SKU'))#添加SKU
+    #suite.addTest(test_SKUSet('test_1search_ByComCode'))#按商品编码查找
     suite.addTest(test_SKUSet('test_2search_BySize'))#按尺寸查找
-    #suite.addTest(test_SKUSet('test_3look_SKUSet'))#查看SKU
+    suite.addTest(test_SKUSet('test_3look_SKUSet'))#查看SKU
     #suite.addTest(test_SKUSet('test_4modify_SKUSet'))#修改SKU
 
     #执行测试
     runner=unittest.TextTestRunner()
-    runner.run(suite)
+    #runner.run(suite)
 
-    #unittest.main()
+    unittest.main()
     log.info('test_EmployeeInfo end--')
         

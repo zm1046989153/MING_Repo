@@ -1,0 +1,18 @@
+[2016-04-09 17:12:10] test_EmployeeInfo.py [Test Case:test_EmployeeInfo] [line:43]INFO:~~~人员信息模块测试~~~
+[2016-04-09 17:12:10] test_EmployeeInfo.py [Test Case:<module>] [line:807]INFO:test_EmployeeInfo start--
+[2016-04-09 17:12:13] test_EmployeeInfo.py [Test Case:test_01add_Employee] [line:222]INFO:开始执行测试...
+[2016-04-09 17:12:19] test_EmployeeInfo.py [Test Case:to_EmployeeInformation] [line:67]INFO:等待页面刷新···
+[2016-04-09 17:12:20] test_EmployeeInfo.py [Test Case:to_EmployeeInformation] [line:70]INFO:刷新完成！！！
+[2016-04-09 17:12:38] test_EmployeeInfo.py [Test Case:clickButton] [line:158]INFO:保存成功！
+[2016-04-09 17:12:47] test_EmployeeInfo.py [Test Case:tearDown] [line:799]INFO:该条用例执行完毕！！！
+[2016-04-09 17:12:49] test_EmployeeInfo.py [Test Case:test_6modify_LoginPasswdReset] [line:563]INFO:开始执行测试...
+[2016-04-09 17:12:55] test_EmployeeInfo.py [Test Case:to_EmployeeInformation] [line:67]INFO:等待页面刷新···
+[2016-04-09 17:12:56] test_EmployeeInfo.py [Test Case:to_EmployeeInformation] [line:70]INFO:刷新完成！！！
+[2016-04-09 17:13:07] test_EmployeeInfo.py [Test Case:tearDown] [line:799]INFO:该条用例执行完毕！！！
+[2016-04-09 17:13:10] test_EmployeeInfo.py [Test Case:test_9adelete_Employee] [line:780]INFO:开始执行测试...
+[2016-04-09 17:13:16] test_EmployeeInfo.py [Test Case:to_EmployeeInformation] [line:67]INFO:等待页面刷新···
+[2016-04-09 17:13:18] test_EmployeeInfo.py [Test Case:to_EmployeeInformation] [line:70]INFO:刷新完成！！！
+[2016-04-09 17:13:19] test_EmployeeInfo.py [Test Case:searchbycode] [line:413]INFO:开始执行测试...
+[2016-04-09 17:13:30] test_EmployeeInfo.py [Test Case:clickButton] [line:134]INFO:删除成功
+[2016-04-09 17:13:30] test_EmployeeInfo.py [Test Case:tearDown] [line:799]INFO:该条用例执行完毕！！！
+[2016-04-09 17:13:30] test_EmployeeInfo.py [Test Case:<module>] [line:835]INFO:test_EmployeeInfo end--

@@ -46,7 +46,7 @@ class test_Measure_Data(unittest.TestCase):
         sleep(2)
         
         #点击添加按钮
-        driver.find_element_by_xpath("//*[@id='ctmMeasureHdToolbar']/a[2]/span/span").click()
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.addButton > span > span").click()
         sleep(2)
 
         #填写着装人手机
@@ -94,13 +94,14 @@ class test_Measure_Data(unittest.TestCase):
         driver=self.driver
         self.to_measureData()#进入量体数据模块
         sleep(1)
-        swiftnum=driver.find_element_by_css_selector("table.datagrid-btable td[field='fdCode']").text
+        num=driver.find_element_by_css_selector("table.datagrid-btable td[field='fdCode']").text
         
-        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > input.easyui-numberbox.validatebox-text").send_keys(swiftnum)#输入查找的流水号
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > input.easyui-numberbox.validatebox-text").send_keys(num)#输入查找的流水号
         sleep(0.5)
-        
-        driver.find_element_by_xpath("//*[@id='ctmMeasureHdToolbar']/a[1]/span/span").click()#点击查找
-        WebWait(driver,"#ctmMeasureHdAccordion div.datagrid-mask-msg")
+
+        #点击查找
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.findButton > span > span").click()
+        WebWait(driver,"#ctmMeasureHdAccordion div.datagrid-mask")
         sleep(0.5)
         
         
@@ -126,8 +127,9 @@ class test_Measure_Data(unittest.TestCase):
         driver.find_element_by_css_selector("#ctmMeasureHdToolbar > input:nth-child(3)").send_keys(name)
         sleep(0.5)
         
-        driver.find_element_by_xpath("//*[@id='ctmMeasureHdToolbar']/a[1]/span/span").click()#点击查找
-        WebWait(driver,"#ctmMeasureHdAccordion div.datagrid-mask-msg")
+        #点击查找
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.findButton > span > span").click()
+        WebWait(driver,"#ctmMeasureHdAccordion div.datagrid-mask")
         #对查找结果进行判断
         sleep(2)
         
@@ -146,15 +148,15 @@ class test_Measure_Data(unittest.TestCase):
         sleep(2)
         
         #选择一条记录
-        driver.find_element_by_css_selector("table.datagrid-btable td[field='ck']").click()
+        driver.find_element_by_css_selector("#ctmMeasureHdAccordion table.datagrid-btable td[field='ck']").click()
         sleep(2)
-        
+
         #点击查看
-        driver.find_element_by_xpath("//*[@id='ctmMeasureHdToolbar']/a[3]/span/span").click()
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.viewButton > span > span").click()
         sleep(2)
         
         #断言是否进入查看界面
-        self.assertEqual(u"编辑",driver.find_element_by_css_selector("#ctmMeasureHdForm > div:nth-child(1) > a:nth-child(1)> span > span > span").text)
+        self.assertEqual(u"编辑",driver.find_element_by_css_selector("#ctmMeasureHdForm  a.easyui-linkbutton.saveButton > span > span > span").text)
         
 
     def test_4modify_MeasureData(self):
@@ -170,7 +172,7 @@ class test_Measure_Data(unittest.TestCase):
         driver.find_element_by_css_selector("#ctmMeasureHdToolbar > input.easyui-numberbox.validatebox-text").send_keys(snum)
         sleep(2)
             
-        driver.find_element_by_xpath("//*[@id='ctmMeasureHdToolbar']/a[1]/span/span").click()#点击查找
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.findButton > span > span").click()#点击查找
         sleep(2)
             
         #对查找结果进行判断
@@ -181,7 +183,7 @@ class test_Measure_Data(unittest.TestCase):
         sleep(2)
 
         #点击修改按钮
-        driver.find_element_by_xpath("//*[@id='ctmMeasureHdToolbar']/a[4]/span/span").click()
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.editButton  > span > span").click()
         sleep(2)
         
         #修改试穿商品
@@ -219,6 +221,7 @@ class test_Measure_Data(unittest.TestCase):
         login.login(self,username,password)
         #进入量体数据模块
         testModule(driver,u'会员管理',u'量体数据')
+        isRefreshed(driver,"table.datagrid-btable td[field='ck']")
         
         sleep(1)
 
@@ -232,14 +235,14 @@ class test_Measure_Data(unittest.TestCase):
         #number="147"#设置要删除的版本流水号
         driver.find_element_by_css_selector("#ctmMeasureHdToolbar > input.easyui-numberbox.validatebox-text").send_keys(swiftnum)#输入要查找的流水号
         sleep(1)
-        driver.find_element_by_xpath("//*[@id='ctmMeasureHdToolbar']/a[1]/span/span").click()#点击查找
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.findButton > span > span").click()#点击查找
         sleep(2)
         
         driver.find_element_by_css_selector("table.datagrid-btable td[field='ck']").click()#选择要删除的记录
         sleep(2)
         
         #点击删除按钮
-        driver.find_element_by_xpath("/html/body/div[3]/div/div[2]/div[2]/div/div/div/div[2]/div/div/div/a[5]/span/span").click()
+        driver.find_element_by_css_selector("#ctmMeasureHdToolbar > a.easyui-linkbutton.deleteButton > span > span").click()
         sleep(1)
 
         #点击确定
@@ -266,16 +269,16 @@ if __name__=="__main__":
     suite=unittest.TestSuite()
     #suite.addTest(test_Measure_Data('to_measureData'))#进入量体数据模块
     #suite.addTest(test_Measure_Data('test_0add_measureData'))#添加量体数据
-    suite.addTest(test_Measure_Data('test_1search_BySwiftNumber'))#通过流水号查找
-    suite.addTest(test_Measure_Data('test_2search_ByDressPerson'))#通过着装人查找
+    #suite.addTest(test_Measure_Data('test_1search_BySwiftNumber'))#通过流水号查找
+    #suite.addTest(test_Measure_Data('test_2search_ByDressPerson'))#通过着装人查找
     
-    #suite.addTest(test_Measure_Data('test_3lookUp_MeasureData'))#查看量体数据
+    suite.addTest(test_Measure_Data('test_3lookUp_MeasureData'))#查看量体数据
     #suite.addTest(test_Measure_Data('test_4modify_MeasureData'))#修改量体数据
     #suite.addTest(test_Measure_Data('test_5delete_MeasureData'))#删除量体数据
 
     #执行测试
     runner=unittest.TextTestRunner()
-    runner.run(suite)
+    #runner.run(suite)
 
-    #unittest.main()
+    unittest.main()
   

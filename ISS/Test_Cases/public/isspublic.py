@@ -9,7 +9,11 @@ from time import sleep
 import unittest,time
 import logging
 
-
+################################################################################
+#本函数用于屏幕截图
+def screenshot(driver,name=''):
+    driver.get_screenshot_as_file("D:\\ISS\Report\\screenshot\\"+time.strftime("%Y-%m-%d %H_%M_%S",time.localtime(time.time()))+name+".png")
+    
 
 ###############################################################################################################################################################
 now=time.strftime('%Y-%m-%d %H_%M_%S',time.localtime(time.time()))
@@ -35,9 +39,9 @@ def WebWait(driver,css,waittime=10):
         #print time.time()
         driver.implicitly_wait(0)
         a=WebDriverWait(driver,waittime).until_not(lambda x:x.find_element_by_css_selector(css).is_displayed())
-      
+        sleep(1)
         #print a
-
+        #div.datagrid-mask-msgn
 
     finally:
         

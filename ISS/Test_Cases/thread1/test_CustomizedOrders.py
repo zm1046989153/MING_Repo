@@ -73,7 +73,7 @@ class Test_CustomizedOrders(unittest.TestCase):
             driver.find_element_by_css_selector('#saleOrdHdToolbar > a.easyui-linkbutton.findButton > span > span').click()
             
             sleep(1)
-            WebWait(driver,"#saleOrdHdAccordion div.datagrid-mask-msg")
+            WebWait(driver,"#saleOrdHdAccordion div.datagrid-mask")
             sleep(0.5)
             
             
@@ -137,10 +137,6 @@ class Test_CustomizedOrders(unittest.TestCase):
         
         else:
             raise NameError('No Such Button,confirm again please')
-
-
-    
-
         
         
 

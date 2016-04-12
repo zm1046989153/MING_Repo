@@ -74,6 +74,7 @@ class test_Measure_WorkOrder(unittest.TestCase):
             
         elif button==u'修改' or button=='modify':
             driver.find_element_by_css_selector('#saleOrdMeasureHdToolbar > a.easyui-linkbutton.editButton  > span > span').click()
+            
             sleep(1)
 
         elif button==u'修改量体状态' or button=='modifys':
@@ -106,6 +107,8 @@ class test_Measure_WorkOrder(unittest.TestCase):
         elif button==u'保存' or button=='save':
             #编辑界面，点击保存按钮
             driver.find_element_by_css_selector("#saleOrdMeasureHdForm > div > a.easyui-linkbutton.saveButton > span > span").click()
+            
+            
             sleep(0.5)
             
              #获取断言信息
@@ -117,6 +120,8 @@ class test_Measure_WorkOrder(unittest.TestCase):
             sleep(1)
             #断言是否保存成功
             self.assertEqual(u"保存成功！",tip_text)
+            
+            WebWait(driver,"#saleOrdMeasureHdAccordion > div:nth-child(1) > div.panel-body.accordion-body  div.datagrid-mask",20)
             
         
         else:
@@ -267,11 +272,12 @@ class test_Measure_WorkOrder(unittest.TestCase):
         #点击保存
        
         self.clickButton(u"保存")
+        
      
         #获取工单号
         global order_num
         order_num=driver.find_element_by_css_selector("div#saleOrdMeasureHdAccordion table.datagrid-btable td[field='fdBillCode']").text
-        #print order_num
+        print order_num
         
         
     def test_1look_WorkOrder(self):
@@ -575,7 +581,7 @@ class test_Measure_WorkOrder(unittest.TestCase):
         log.info(u'''开始执行测试...''')
         
         
-        global order_number
+       
         phone1="18350293137"
         
         driver=self.driver
@@ -725,11 +731,11 @@ class test_Measure_WorkOrder(unittest.TestCase):
 if __name__=="__main__":
     #构造测试集
     suite=unittest.TestSuite()
-    #suite.addTest(test_Measure_WorkOrder('test_0add_WorkOrder'))#添加量体工单
+    suite.addTest(test_Measure_WorkOrder('test_0add_WorkOrder'))#添加量体工单
     
     #suite.addTest(test_Measure_WorkOrder('test_1look_WorkOrder'))#查看量体工单
     
-    suite.addTest(test_Measure_WorkOrder('test_2search_ByWorkOrder'))#按工单号查找
+    #suite.addTest(test_Measure_WorkOrder('test_2search_ByWorkOrder'))#按工单号查找
     #suite.addTest(test_Measure_WorkOrder('test_3search_ByAppointmentTime'))#按预约时间查找
     #suite.addTest(test_Measure_WorkOrder('test_4search_By_AppointmentStore'))#按预约门店查找
     #suite.addTest(test_Measure_WorkOrder('test_5search_ByMeasureWay'))#按量体方式查找
@@ -747,6 +753,6 @@ if __name__=="__main__":
 
     #执行测试
     runner=unittest.TextTestRunner()
-    runner.run(suite)
+    #runner.run(suite)
 
-    #unittest.main()
+    unittest.main()

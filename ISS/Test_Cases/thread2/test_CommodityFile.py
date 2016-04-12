@@ -68,12 +68,14 @@ class test_CommodityFile(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#masPartHdToolbar > a.easyui-linkbutton.findButton').click()
+            WebWait(driver,"#masPartHdForm > div.datagrid-mask-msg")
             sleep(1)
             
             
         elif button==u'查看' or button=='view':
             #点击“查看”按钮
             driver.find_element_by_css_selector('#masPartHdToolbar > a.easyui-linkbutton.viewButton').click()
+            WebWait(driver,"#masPartHdForm > div.datagrid-mask-msg")
             sleep(1)
             
             #判断是否进入查看界面

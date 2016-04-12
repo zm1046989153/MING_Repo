@@ -146,7 +146,7 @@ class test_OnlinePromotion(unittest.TestCase):
                 sleep(1)
             
             #断言
-            self.Delete_And_Add_Assert(delete,a)
+            self.Delete_And_Add_Assert('delete',a)
             
                 
         elif button==u'返回' or button=='return':
@@ -529,6 +529,10 @@ class test_OnlinePromotion(unittest.TestCase):
 
         #修改
         self.clickButton(u"修改")
+        print findCss(driver,"#salePmOnlineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1) > div > div > div > div > div.datagrid-mask-msgn")
+
+        #等待界面刷新
+        WebWait(driver,"#salePmOnlineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1) > div > div > div > div > div.datagrid-mask-msgn")
         
 
     def test_7modify_Promotion(self):
@@ -762,7 +766,7 @@ class test_OnlinePromotion(unittest.TestCase):
         #进入促销修改
         self.edit_Promotion()
 
-        #详情页-促销商品
+        #详情页-换购品
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(4) > a > span.tabs-title").click()
         sleep(0.5)
 
@@ -797,7 +801,7 @@ class test_OnlinePromotion(unittest.TestCase):
         #选择已添加的商品类型
         findCss(driver,"#salePmChangepurchaseAccordion  div.panel.datagrid  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
-        findCss(driver,"#salePmChangePurchaseToolbar").send_keys(Keys.DOWN)
+        findCss(driver,"#salePmChangepurchaseAccordion").send_keys(Keys.DOWN)
         sleep(0.5)
         
         
@@ -812,15 +816,15 @@ class test_OnlinePromotion(unittest.TestCase):
         sleep(0.5)
 
         #折扣
-        findCss(driver,"#salePmDtPartPartLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='rebate']  input").send_keys('0.8')
+        findCss(driver,"#salePmDtPartPurchaseShopLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='rebate']  input").send_keys('0.8')
         sleep(0.5)
 
         #数量
-        findCss(driver,"#salePmDtPartPartLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='qty']  input").send_keys('5')
+        findCss(driver,"#salePmDtPartPurchaseShopLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='qty']  input").send_keys('5')
         sleep(0.5)
 
         #保存
-        findCss(driver,"#salePmDtPartToolbar > a.easyui-linkbutton.saveDataButton > span > span").click()
+        findCss(driver,"#salePmChangePurchaseToolbar > a.easyui-linkbutton.saveDataButton > span > span").click()
         sleep(1)
         #断言
         self.Delete_And_Add_Assert('add')
@@ -834,40 +838,304 @@ class test_OnlinePromotion(unittest.TestCase):
         #进入促销修改
         self.edit_Promotion()
 
-        #详情页-促销商品
+        #详情页-换购品
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(4) > a > span.tabs-title").click()
         sleep(0.5)
 
         #选择商品类别
-        findCss(driver,"#salePmDtPartAccordion > div > div.panel.datagrid  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
+        findCss(driver,"#salePmChangepurchaseAccordion  div.panel.datagrid  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
 
-        findCss(driver,"#salePmDtPartAccordion ").send_keys(Keys.DOWN)
+        findCss(driver,"#salePmChangepurchaseAccordion").send_keys(Keys.DOWN)
 
         sleep(0.5)
         
         #选择商品
-        findCss(driver,"#salePmDtPartPartLevel div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
+        findCss(driver,"#salePmDtPartPurchaseShopLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
 
         #删除商品
-        findCss(driver,"#salePmDtPartPartLevelGridToolbar > a.easyui-linkbutton.removeDataButton > span > span").click()
+        findCss(driver,"#salePmChangePurchaseShopChildrenGridToolbar > a.easyui-linkbutton.removeDataButton> span > span").click()
         sleep(0.5)
 
         #断言
         self.Delete_And_Add_Assert('delete',a=False)
+        sleep(1)
 
         #删除商品类别
-        findCss(driver,"#salePmDtPartToolbar > a.easyui-linkbutton.removeDataButton > span > span").click()
+        findCss(driver,"#salePmChangePurchaseToolbar > a.easyui-linkbutton.removeOfflineChangeButton > span > span").click()
         sleep(0.5)
 
         #断言
         self.Delete_And_Add_Assert('delete',a=False)
 
+
+    
+    def test_gmodify_AddDonation(self):
+        u'''添加赠品'''
+
+        driver=self.driver
+
+        #进入促销修改
+        self.edit_Promotion()
+
+        #详情页-赠品设置
+        findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(5) > a > span.tabs-title").click()
+        sleep(0.5)
+
+        #添加商品类型
+        #添加
+        findCss(driver,"#salePmDtGiftToolbar > a.easyui-linkbutton.appendDataButton > span > span").click()
+        sleep(0.5)
+
+        #输入赠送类型
+        tpe=u'积分'
+        tp1=findCss(driver,"#salePmDtGiftAccordion  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field=\"giftType\"]  input.combo-text.validatebox-text.validatebox-invalid")
+        tp1.send_keys(tpe)
+        sleep(0.5)
+        tp1.send_keys(Keys.ENTER)
+        sleep(0.5)
+
+        #输入赠送方式
+        tp=findCss(driver,"#salePmDtGiftAccordion  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field=\"giftMode\"]  input.combo-text.validatebox-text.validatebox-invalid")
+        #tp.click()
+        sleep(0.5)
+        
+        tp.send_keys(u"固定")
+        sleep(0.5)
+        
+        tp.send_keys(Keys.ENTER)
+        sleep(0.5)
+
+        #保存
+        findCss(driver,"#salePmDtGiftToolbar > a.easyui-linkbutton.savePmDataButton > span > span").click()
+        sleep(1)
+        
+        #断言
+        self.Delete_And_Add_Assert('add')
+
+        #添加商品
+        #选择已添加的赠品类型
+        findCss(driver,"#salePmDtGiftAccordion  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
+        sleep(0.5)
+        findCss(driver,"#salePmDtGiftAccordion").send_keys(Keys.DOWN)
+        sleep(0.5)
+        
+        
+        #添加
+        findCss(driver,"#salePmDtGiftIntegralLevelGridToolbar > a.easyui-linkbutton.appendDataButton > span > span").click()
+        sleep(0.5)
+
+        #设置赠送积分
+        findCss(driver,"#salePmDtGiftIntegralLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table  td[field='qty'] input.datagrid-editable-input.validatebox-text.validatebox-invalid").send_keys("10")
+        sleep(0.5) 
+       
+
+        #设置总赠送积分
+        findCss(driver,"#salePmDtGiftIntegralLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table  td[field='limitQty'] input.datagrid-editable-input.validatebox-text.validatebox-invalid").send_keys('100')
+        sleep(0.5)
+
+
+        #保存
+        findCss(driver,"#salePmDtGiftToolbar > a.easyui-linkbutton.savePmDataButton > span > span").click()
+        sleep(1)
+        #断言
+        self.Delete_And_Add_Assert('add')
+
+        
+    def test_hmodify_DeleteDonation(self):
+        u'''删除赠品'''
+
+        driver=self.driver
+
+        #进入促销修改
+        self.edit_Promotion()
+
+        #详情页-赠品设置
+        findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(5) > a > span.tabs-title").click()
+        sleep(0.5)
+
+        #选择赠品类型
+        findCss(driver,"#salePmDtGiftAccordion  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
+        sleep(0.5)
+
+        findCss(driver,"#salePmDtGiftAccordion").send_keys(Keys.DOWN)
+        sleep(0.5)
+        
+        #选择赠品
+        findCss(driver,"#salePmDtGiftIntegralLevel  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
+        sleep(0.5)
+
+        #删除赠品
+        findCss(driver,"#salePmDtGiftIntegralLevelGridToolbar > a.easyui-linkbutton.removeDataButton > span > span").click()
+        sleep(0.5)
+
+        #断言
+        self.Delete_And_Add_Assert('delete',a=False)
+        sleep(1)
+
+        #删除赠品类别
+        findCss(driver,"#salePmDtGiftToolbar > a.easyui-linkbutton.removeDataButton > span > span").click()
+        sleep(0.5)
+
+        #断言
+        self.Delete_And_Add_Assert('delete',a=False)
+
+
+    def test_imodify_AddTriggerPoint(self):
+        u'''添加业务触发点'''
+
+        driver=self.driver
+
+        #进入促销修改
+        self.edit_Promotion()
+
+        #详情页-业务触发点
+        findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(6) > a > span.tabs-title").click()
+        sleep(0.5)
+
+        #添加触发点
+        #添加
+        findCss(driver,"#salePmDtTrgToolbar > a.easyui-linkbutton.addButton > span > span").click()
+        sleep(0.5)
 
         
 
-    def test_8delete_Promotion(self):
+        #选择促销类型
+        
+        tp1=findCss(driver,"#fixedOnlineTrgArea > td:nth-child(11) > span > input.combo-text.validatebox-text")
+        tp1.click()
+        sleep(0.5)
+        
+        tp1.send_keys(Keys.DOWN)
+        sleep(0.5)
+        tp1.send_keys(Keys.ENTER)
+        sleep(0.5)
+
+        #选择赠品
+        tp=findCss(driver,"#fixedOnlineTrgArea > td:nth-child(13) > span > input.combo-text.validatebox-text.validatebox-invalid")
+        tp.click()
+        sleep(0.5)
+        
+        tp.send_keys(Keys.DOWN)
+        sleep(0.5)
+        
+        tp.send_keys(Keys.ENTER)
+        sleep(0.5)
+
+
+        #捆绑数量
+        tp.send_keys(Keys.TAB)
+        sleep(0.5)
+        num=findCss(driver,"#pmTypeGive > td:nth-child(3) > input.easyui-numberbox.validatebox-text.validatebox-invalid")
+        num.send_keys('3')
+        sleep(0.5) 
+
+        #赠送数量
+        num.send_keys(Keys.TAB)
+        findCss(driver,"#pmTypeGive td:nth-child(5) input.easyui-numberbox.validatebox-text.validatebox-invalid").send_keys('1')
+        sleep(0.5)
+        
+
+        #保存
+        findCss(driver,"div.panel-body.panel-body-noborder.window-body.panel-noscroll > div > div.panel.layout-panel.layout-panel-center  a.easyui-linkbutton.addTermButton > span > span > span").click()
+        sleep(1)
+        
+        #断言
+        self.Delete_And_Add_Assert('add')
+
+        #确定
+        findCss(driver,"div.panel-body.panel-body-noborder.window-body.panel-noscroll > div > div.panel.layout-panel.layout-panel-center > div > div > div.panel.layout-panel.layout-panel-south > div > a > span > span > span").click()
+        
+    def test_jmodify_DeleteTriggerPoint(self):
+        u'''删除业务触发点'''
+
+        driver=self.driver
+
+        #进入促销修改
+        self.edit_Promotion()
+
+        #详情页-业务触发点
+        findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(6) > a > span.tabs-title").click()
+        sleep(0.5)
+
+        #选择一个触发点
+        findCss(driver,"#salePmDtTrgToolbar + div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
+        sleep(0.5)
+
+
+        #删除
+        findCss(driver,"#salePmDtTrgToolbar > a.easyui-linkbutton.deleteButton > span > span").click()
+        sleep(0.5)
+
+        #断言
+        self.Delete_And_Add_Assert('delete',a=False)
+        sleep(1)
+
+    def test_kmodify_AddPayment(self):
+        u'''添加结算方式'''
+
+        driver=self.driver
+
+        #进入促销修改
+        self.edit_Promotion()
+
+        #详情页-结算方式
+        findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(7) > a > span.tabs-title").click()
+        sleep(0.5)
+
+        #添加结算方式
+        #添加
+        findCss(driver,"#salePmDtPaymentToolbar > div > a.easyui-linkbutton.appendDataButton > span > span").click()
+        sleep(0.5)
+        
+
+        #选择结算方式
+        payment=u'支付宝支付'
+        pl=findCss(driver,"#salePmDtPaymentToolbar + div.datagrid-view > div.datagrid-view2 > div.datagrid-body  td[field='stmPayment']  input.combo-text.validatebox-text.validatebox-invalid")
+        pl.send_keys(payment)
+        sleep(0.5)
+        pl.send_keys(Keys.ENTER)
+        
+    
+        #保存
+        findCss(driver,"#salePmDtPaymentToolbar > div > a.easyui-linkbutton.saveButton > span > span > span").click()
+        sleep(1)
+        
+        #断言
+        self.Delete_And_Add_Assert('add')
+
+       
+        
+    def test_ldelete_DeletePayment(self):
+        u'''删除结算方式'''
+
+        driver=self.driver
+
+        #进入促销修改
+        self.edit_Promotion()
+
+        #详情页-结算方式
+        findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(7) > a > span.tabs-title").click()
+        sleep(0.5)
+
+        #选择一个结算方式
+        findCss(driver,"#salePmDtPaymentToolbar + div.datagrid-view > div.datagrid-view2 > div.datagrid-body  td[field='ck']").click()
+        sleep(0.5)
+
+
+        #删除
+        findCss(driver,"#salePmDtPaymentToolbar > div > a.easyui-linkbutton.removeDataButton > span > span").click()
+        sleep(0.5)
+
+        #断言
+        self.Delete_And_Add_Assert('delete',a=False)
+        sleep(1)
+
+      
+        
+
+    def test_mdelete_Promotion(self):
         u'''删除促销'''
         
         driver=self.driver
@@ -887,9 +1155,7 @@ class test_OnlinePromotion(unittest.TestCase):
         self.clickButton(u"删除")
 
     
-
-        
-    def test_9modify_ApprovalStatus(self):
+    def tes_nmodify_ApprovalStatus(self):
         u'''修改审批状态'''
 
         log.info(u"开始执行用例...")
@@ -922,18 +1188,18 @@ class test_OnlinePromotion(unittest.TestCase):
         
         
     
-'''      
+    
     def tearDown(self):
         log.info("该条用例执行执行完毕！！！")
         self.driver.close()
         self.driver.quit() 
-'''
+
 
 
 if __name__=='__main__':
     
     
-    #建立测试集
+    # 建立测试集
     logging.info('test_OnlinePromotion start--')
     
     suite=unittest.TestSuite()
@@ -950,21 +1216,31 @@ if __name__=='__main__':
     
     #suite.addTest(test_OnlinePromotion('test_7modify_Promotion')) #修改促销
     
-    #suite.addTest(test_OnlinePromotion('test_8modify_AddSuitObject')) #添加适用对象
-    #suite.addTest(test_OnlinePromotion('test_9modify_DeleteSuitObject')) #删除适用对象
+    suite.addTest(test_OnlinePromotion('test_8modify_AddSuitObject')) #添加适用对象
+    suite.addTest(test_OnlinePromotion('test_9modify_DeleteSuitObject')) #删除适用对象
 
-    #suite.addTest(test_OnlinePromotion('test_amodify_Add_TimeConstraint')) #添加时段约束
-    #suite.addTest(test_OnlinePromotion('test_bmodify_Delete_TimeConstraint')) #删除时段约束
+    suite.addTest(test_OnlinePromotion('test_amodify_Add_TimeConstraint')) #添加时段约束
+    suite.addTest(test_OnlinePromotion('test_bmodify_Delete_TimeConstraint')) #删除时段约束
     
-    #suite.addTest(test_OnlinePromotion('test_cmodify_AddPromotion_com')) #添加促销商品
-    #suite.addTest(test_OnlinePromotion('test_dmodify_DeletePromotion_com')) #删除促销商品
+    suite.addTest(test_OnlinePromotion('test_cmodify_AddPromotion_com')) #添加促销商品
+    suite.addTest(test_OnlinePromotion('test_dmodify_DeletePromotion_com')) #删除促销商品
 
     suite.addTest(test_OnlinePromotion('test_emodify_AddRedemption_com')) #添加换购品
-    #suite.addTest(test_OnlinePromotion('test_fmodify_DeleteRedemption_com')) #删除换购品
+    suite.addTest(test_OnlinePromotion('test_fmodify_DeleteRedemption_com')) #删除换购品
+
+    suite.addTest(test_OnlinePromotion('test_gmodify_AddDonation')) #添加赠品
+    suite.addTest(test_OnlinePromotion('test_hmodify_DeleteDonation')) #删除赠品
+
+    suite.addTest(test_OnlinePromotion('test_imodify_AddTriggerPoint')) #添加业务触发点
+    suite.addTest(test_OnlinePromotion('test_jmodify_DeleteTriggerPoint')) #删除业务触发点
+
+    #suite.addTest(test_OnlinePromotion('test_kmodify_AddPayment')) #添加支付方式
+    #suite.addTest(test_OnlinePromotion('test_ldelete_DeletePayment')) #删除支付方式
+
     
-    #suite.addTest(test_OnlinePromotion('test_8delete_Promotion')) #删除促销
+    #suite.addTest(test_OnlinePromotion('test_mdelete_Promotion')) #删除促销
     
-    #suite.addTest(test_OnlinePromotion('test_9modify_ApprovalStatus')) #修改审批状态
+    #suite.addTest(test_OnlinePromotion('test_nmodify_ApprovalStatus')) #修改审批状态
     
     
    

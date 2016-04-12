@@ -188,6 +188,9 @@ class test_ConstantSetting(unittest.TestCase):
         #查找
         self.clickButton(u"查找")
 
+        #等待页面刷新
+        WebWait(driver,"#stmConstantAccordion > div:nth-child(1) > div.panel-body.accordion-body div.datagrid-mask-msgn")
+
         #断言
         cds=findsCss(driver,"#stmConstantAccordion > div:nth-child(1) table.datagrid-btable td[field='fdCode']")
         searchAssert(self,cds,code)

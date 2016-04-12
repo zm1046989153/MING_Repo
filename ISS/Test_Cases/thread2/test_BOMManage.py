@@ -74,6 +74,8 @@ class test_BOMManager(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#masBomHdToolbar  a.easyui-linkbutton.findButton > span > span').click()
+            WebWait(driver,"#masBomHdAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msgn")
+            
             sleep(1)
 
         elif button==u'查看' or button=='view':
@@ -91,6 +93,7 @@ class test_BOMManager(unittest.TestCase):
             
         elif button==u'修改' or button=='modify':
             driver.find_element_by_css_selector('#masBomHdToolbar   a.easyui-linkbutton.editButton > span > span').click()
+            WebWait(driver,"#masBomHdForm  div.datagrid-mask-msgn")
             sleep(1)
     
 

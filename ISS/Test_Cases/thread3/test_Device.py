@@ -53,7 +53,7 @@ class test_Device(unittest.TestCase):
         
         #判断页面是否刷新
         log.info(u"等待页面刷新···")
-        isRefreshed(driver,"#content > div.tabs-panels.tabs-panels-noborder > div:nth-child(2) table.datagrid-btable td[field='ck']")
+        isRefreshed(driver,"#content > div.tabs-panels.tabs-panels-noborder  table.datagrid-btable td[field='ck']")
         
         log.info(u"刷新完成！！！")
 
@@ -374,6 +374,9 @@ class test_Device(unittest.TestCase):
         #保存
         self.clickButton(u"保存")
 
+        #等待界面刷新完成
+        WebWait(driver,"#content > div.tabs-panels.tabs-panels-noborder div.panel.layout-panel.layout-panel-center  div.datagrid-mask")
+
         #再次查找
         self.searchbycode(code)
 
@@ -438,8 +441,8 @@ if __name__=='__main__':
     #执行测试
     
     runner=unittest.TextTestRunner()
-    runner.run(suite)
+    #runner.run(suite)
 
-    #unittest.main()
+    unittest.main()
     log.info('test_Device end--')
         

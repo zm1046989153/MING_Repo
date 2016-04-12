@@ -176,7 +176,7 @@ class test_ColorSetting(unittest.TestCase):
         sleep(0.5)
 
         #填写描述信息
-        driver.find_element_by_css_selector("#stmColorForm  tr:nth-child(3) > td.easyui-myText > textarea").send_keys(color_info)
+        driver.find_element_by_css_selector("#stmColorForm  tr:nth-child(4) > td.easyui-myText > textarea").send_keys(color_info)
         sleep(0.5)
 
         #保存
