@@ -11,7 +11,9 @@ def EEEcreatsuit():
     listaa=os.listdir('D:\\ISS\\Test_Cases')
     test_dir='D:\\ISS\\Test_Cases'
     for xx in listaa:
+
         if "thread" in xx:
+
             casedir.append(xx)
             
     suite=[]
@@ -42,5 +44,29 @@ def EEEEEmultiRunCase(suite,casedir):
     fp.close()
 
 if __name__ == '__main__':
-    runtmp=EEEcreatsuit()
-    EEEEEmultiRunCase(runtmp[0],runtmp[1])
+
+
+    start=True
+    
+    while 1:
+        
+        s=1
+        
+        if time.strftime("%H:%M",time.localtime(time.time()))=='19:00' or start:
+            print u"开始执行测试..."
+            
+            runtmp=EEEcreatsuit()
+            EEEEEmultiRunCase(runtmp[0],runtmp[1])
+            
+            print u"用例执行完毕！"
+            break
+            
+        else:
+            
+            print str(s)+u"等待执行测试..."
+            time.sleep(30)
+            s+=1
+            
+        
+            
+

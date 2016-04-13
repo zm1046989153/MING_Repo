@@ -32,7 +32,11 @@ logging.basicConfig(level=logging.INFO,
 ###############################################################################################################################################################
 
 #当界面中的某个元素不存在时才继续执行程序
+<<<<<<< HEAD
 def WebWait(driver,css,waittime=10):
+=======
+def WebWait(driver,css,waittime=15):
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     '''页面等待'''
 
     try:
@@ -41,7 +45,15 @@ def WebWait(driver,css,waittime=10):
         a=WebDriverWait(driver,waittime).until_not(lambda x:x.find_element_by_css_selector(css).is_displayed())
         sleep(1)
         #print a
+<<<<<<< HEAD
         #div.datagrid-mask-msgn
+=======
+        #div.datagrid-mask-msg
+        
+    except:
+        log.info(u"页面无法刷新！！！")
+        raise NameError("Wait Timeout!")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
     finally:
         

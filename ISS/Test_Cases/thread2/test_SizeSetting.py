@@ -72,6 +72,12 @@ class test_SizeSetting(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#stmSizeToolbar > a.easyui-linkbutton.findButton').click()
+<<<<<<< HEAD
+=======
+            #print findCss(driver,"#stmSizeAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msg").text
+            #等待页面刷新
+            WebWait(driver,"#stmSizeAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             sleep(1)
 
             
@@ -249,7 +255,14 @@ class test_SizeSetting(unittest.TestCase):
         #保存
         self.clickButton(u'保存')
         sleep(0.5)
+<<<<<<< HEAD
 
+=======
+        
+        #等待页面刷新
+        WebWait(driver,"#stmSizeAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask")
+        
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #再次查找
         self.clickButton(u"查找")
         sleep(0.5)
@@ -309,8 +322,14 @@ if __name__=='__main__':
     
     #执行测试
     runner=unittest.TextTestRunner()
+<<<<<<< HEAD
     runner.run(suite)
 
     #unittest.main()
+=======
+    #runner.run(suite)
+
+    unittest.main()
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         

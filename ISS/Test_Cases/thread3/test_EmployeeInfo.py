@@ -19,7 +19,11 @@ dom=xml.dom.minidom.parse('D:\\ISS\\Test_Data\\login.xml')
 root=dom.documentElement
 
 #员工编码
+<<<<<<< HEAD
 empl_code='ZM163331'
+=======
+empl_code='ZM102113'
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
 #员工名称
 empl_name='ZM_ATest'
@@ -156,21 +160,37 @@ class test_EmployeeInfo(unittest.TestCase):
             #print tip_text
             log.info(tip_text)
             #截图断言信息
+<<<<<<< HEAD
             screenshot(driver)
+=======
+            screenshot(driver,u'人员信息保存')
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             
             #确定,关闭提示框
             driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a > span > span").click()
 
             #断言是否保存成功
             self.assertEqual(u"保存成功！",tip_text)
+<<<<<<< HEAD
+=======
+
+           
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             
         
         else:
             raise NameError('No Such Button,confirm again please')
         
+<<<<<<< HEAD
     def login_NewEmployee(self,username,password='123456'):
         
         driver=webdriver.Firefox()
+=======
+    def login_NewEmployee(self,username,password='123456',a=True):
+        
+        driver=webdriver.Firefox()
+        driver.maximize_window()
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver.get(self.base_url)
         
         #新用户登录
@@ -185,6 +205,7 @@ class test_EmployeeInfo(unittest.TestCase):
         
 
         #首次登录
+<<<<<<< HEAD
         msg=''
         
         try:
@@ -215,6 +236,38 @@ class test_EmployeeInfo(unittest.TestCase):
         #print driver.find_element_by_css_selector("body > div.panel.layout-panel.layout-panel-west > div.panel-header > div.panel-title").text
         self.assertEqual(u'智能零售系统',driver.find_element_by_css_selector("body > div.panel.layout-panel.layout-panel-west > div.panel-header > div.panel-title").text)
         driver.close()
+=======
+       
+        
+        msg=driver.find_element_by_css_selector("#showMsg").text
+        sleep(0.5)
+
+        #首次登陆,更改密码
+        if msg==u"首次登录，请修改密码！" or msg==u'请输入新密码':            
+            #填写新密码
+            new_passwd='qs8888'
+            driver.find_element_by_css_selector("#new > input[name='fdNewPassword']").send_keys(new_passwd)
+            sleep(0.5)
+            #确认密码
+            driver.find_element_by_css_selector("#retype > input[name='fdRePassword']").send_keys(new_passwd)
+            sleep(0.5)
+            #点击修改
+            driver.find_element_by_css_selector("#buttonLogin > span > span").click()
+            sleep(1)
+            password=new_passwd
+
+        else:
+            pass
+
+
+        #断言是否进入系统
+        sleep(1)
+        #print driver.find_element_by_css_selector("#content > div.tabs-panels.tabs-panels-noborder > div > div > div > h5").text
+        self.assertEqual(u'欢迎使用',driver.find_element_by_css_selector("#content > div.tabs-panels.tabs-panels-noborder > div > div > div > h5").text)
+        
+        driver.close()
+        sleep(0.5)
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver.quit()
 
         
@@ -260,8 +313,28 @@ class test_EmployeeInfo(unittest.TestCase):
        
         #左侧菜单树点击选择地区范围
         #print findCss(driver,"body  div.panel-body.panel-body-noborder.window-body.panel-noscroll  div.panel.layout-panel.layout-panel-west > div.panel-header.panel-header-noborder > div.panel-title").text
+<<<<<<< HEAD
 
         driver.find_element_by_css_selector("body div.panel-body.panel-body-noborder.window-body.panel-noscroll  div.content_wrap > div.zTreeDemoBackground.left > ul.ztree.destinationTree > li > a>span:nth-child(2)").click()
+=======
+        try:
+            
+            driver.find_element_by_css_selector("body div.panel-body.panel-body-noborder.window-body.panel-noscroll  div.content_wrap > div.zTreeDemoBackground.left > ul.ztree.destinationTree > li > a>span:nth-child(2)").click()
+
+        except:
+            #界面未刷新，点击取消按钮，再次进入区域选择界面
+            #取消
+            findCss(driver,"body  div.panel-body.panel-body-noborder.window-body.panel-noscroll > div > div.panel.layout-panel.layout-panel-center div.panel.layout-panel.layout-panel-south > div > a.easyui-linkbutton.cancelButton > span > span").click()
+            sleep(0.5)
+            #确定
+            findCss(driver,"body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a:nth-child(1) > span > span").click()
+            #所在区域
+            driver.find_element_by_css_selector("#stmPersonHdTForm tr:nth-child(2) > td:nth-child(4) > span > input.combo-text.validatebox-text").click()
+            sleep(1)
+            #选择区域范围
+            driver.find_element_by_css_selector("body div.panel-body.panel-body-noborder.window-body.panel-noscroll  div.content_wrap > div.zTreeDemoBackground.left > ul.ztree.destinationTree > li > a>span:nth-child(2)").click()
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         sleep(0.5)
 
         #点击选择地区
@@ -566,6 +639,13 @@ class test_EmployeeInfo(unittest.TestCase):
         driver=self.driver
         #进入人员信息
         self.to_EmployeeInformation()
+<<<<<<< HEAD
+=======
+
+        #查找员工
+        code=empl_code
+        self.searchbycode(code)
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         
         #选择员工
@@ -679,9 +759,19 @@ class test_EmployeeInfo(unittest.TestCase):
         success=driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div:nth-child(2)")
         tip_text=success.text
         log.info(tip_text)
+<<<<<<< HEAD
         #确定,关闭提示框
         driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a > span > span").click()
 
+=======
+        
+        #确定,关闭提示框
+        driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a > span > span").click()
+
+        #等待页面刷新完成
+        WebWait(driver,"#content > div.tabs-panels.tabs-panels-noborder > div:nth-child(2) > div > div > div.panel.layout-panel.layout-panel-center div.datagrid-mask-msg")
+            
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #再次查找
         self.searchbycode(code)
 
@@ -767,6 +857,11 @@ class test_EmployeeInfo(unittest.TestCase):
         #确定,关闭提示框
         driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a > span > span").click()
 
+<<<<<<< HEAD
+=======
+        #等待页面刷新完成
+        WebWait(driver,"#content > div.tabs-panels.tabs-panels-noborder > div:nth-child(2) > div > div > div.panel.layout-panel.layout-panel-center div.datagrid-mask-msg")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         #再次查找
         self.searchbycode(code)
@@ -809,7 +904,11 @@ if __name__=='__main__':
     suite=unittest.TestSuite()
     
 
+<<<<<<< HEAD
     suite.addTest(test_EmployeeInfo('test_01add_Employee'))#添加员工
+=======
+    #suite.addTest(test_EmployeeInfo('test_01add_Employee'))#添加员工
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     #suite.addTest(test_EmployeeInfo('test_02add_EmployeeCopy'))#员工复制添加
     
     #suite.addTest(test_EmployeeInfo('test_1search_ByEmployeeCode'))#按员工编号查找
@@ -818,13 +917,21 @@ if __name__=='__main__':
     #suite.addTest(test_EmployeeInfo('test_4search_ByEmployeePosition'))#按岗位名称查找
     
     #suite.addTest(test_EmployeeInfo('test_5modify_EmployeeInfo'))#修改员工信息
+<<<<<<< HEAD
     #suite.addTest(test_EmployeeInfo('test_6modify_LoginPasswdReset'))#登录密码重置
+=======
+    suite.addTest(test_EmployeeInfo('test_6modify_LoginPasswdReset'))#登录密码重置
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     #suite.addTest(test_EmployeeInfo('test_7modify_RoleAssignment'))#角色分配
     
     #suite.addTest(test_EmployeeInfo('test_8modify_Storedistribution'))#门店分配
     
     
+<<<<<<< HEAD
     suite.addTest(test_EmployeeInfo('test_9adelete_Employee'))#员工删除
+=======
+    #suite.addTest(test_EmployeeInfo('test_9adelete_Employee'))#员工删除
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
    
     
     

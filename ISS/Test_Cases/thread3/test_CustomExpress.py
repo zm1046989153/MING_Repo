@@ -18,7 +18,13 @@ dom=xml.dom.minidom.parse('D:\\ISS\\Test_Data\\login.xml')
 root=dom.documentElement
 
 #编码
+<<<<<<< HEAD
 code=u'EX_113014'
+=======
+strt=time.strftime("%H%M%S",time.localtime(time.time()))
+code=u'EX_'+strt
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
 
 class test_CustomExpress(unittest.TestCase):
@@ -67,7 +73,13 @@ class test_CustomExpress(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#stmShippingTemplateToolbar > a.easyui-linkbutton.findButton > span > span').click()
+<<<<<<< HEAD
             sleep(2)
+=======
+            #print findCss(driver,"#stmShippingTemplateAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msg").text
+            WebWait(driver,"#stmShippingTemplateAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msg")
+            sleep(1)
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         elif button==u'查看' or button=='view':
             #点击“查看”按钮
@@ -455,6 +467,7 @@ class test_CustomExpress(unittest.TestCase):
         #保存
         self.clickButton(u"保存")
 
+<<<<<<< HEAD
         #等待页面刷新
         log.info(u"等待页面刷新···")
         
@@ -462,6 +475,10 @@ class test_CustomExpress(unittest.TestCase):
         
         log.info(u"刷新完成！！！")
         sleep(0.5)
+=======
+        #等待页面刷新完成
+        WebWait(driver,"#stmShippingTemplateAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msg")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #print findCss(driver,"#stmShippingTemplateAccordion > div:nth-child(1) table.datagrid-btable td[field='templateCode']").text
 
@@ -528,8 +545,14 @@ if __name__=='__main__':
     #执行测试
     
     runner=unittest.TextTestRunner()
+<<<<<<< HEAD
     runner.run(suite)
 
     #unittest.main()
+=======
+    #runner.run(suite)
+
+    unittest.main()
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     log.info('test_CustomExpress end--')
         

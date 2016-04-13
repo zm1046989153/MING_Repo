@@ -18,7 +18,11 @@ dom=xml.dom.minidom.parse('D:\\ISS\\Test_Data\\login.xml')
 root=dom.documentElement
 
 #促销编号
+<<<<<<< HEAD
 pro_code='PM201603310001'
+=======
+pro_code='PM201604050012'
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
 #促销主题
 pro_theme=u"线上促销主题Auto_test"
@@ -81,6 +85,10 @@ class test_OnlinePromotion(unittest.TestCase):
             #断言是否保存成功
             self.assertEqual(u"保存成功！",driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div:nth-child(2)").text)
             sleep(0.5)
+<<<<<<< HEAD
+=======
+            screenshot(driver,u"保存")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div.messager-button > a > span > span").click()
             sleep(1)
             
@@ -97,6 +105,10 @@ class test_OnlinePromotion(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#salePmOnlineListRToolbar > a.easyui-linkbutton.findButton > span > span').click()
+<<<<<<< HEAD
+=======
+            WebWait(driver,"#content > div.tabs-panels.tabs-panels-noborder > div:nth-child(2) > div > div > div > div > div.datagrid-mask")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             sleep(1)
 
         elif button==u'查看' or button=='view':
@@ -185,6 +197,11 @@ class test_OnlinePromotion(unittest.TestCase):
          
     def test_0add_Promotion(self):
         u'''添加促销'''
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         driver=self.driver
         #进入线上促销
@@ -310,7 +327,12 @@ class test_OnlinePromotion(unittest.TestCase):
 
     def test_1search_byKeyWord(self):
         u'''按关键字查找促销'''
+<<<<<<< HEAD
         
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入线上促销
@@ -341,7 +363,12 @@ class test_OnlinePromotion(unittest.TestCase):
     
     def test_2search_byActivityTime(self):
         u'''按活动时间查找'''
+<<<<<<< HEAD
         
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入线上促销
@@ -400,6 +427,11 @@ class test_OnlinePromotion(unittest.TestCase):
 
     def test_3search_byApplicableObject(self):
         u'''按适用对象查找'''
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         driver=self.driver
 
@@ -420,6 +452,11 @@ class test_OnlinePromotion(unittest.TestCase):
         
     def test_4search_byMakeDate(self):
         u'''按制单日期查找'''
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         driver=self.driver
 
@@ -465,6 +502,12 @@ class test_OnlinePromotion(unittest.TestCase):
 
     def test_5search_byIdentifyDocument(self):
         u'''按单据标识查找'''
+<<<<<<< HEAD
+=======
+
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         driver=self.driver
 
@@ -487,6 +530,12 @@ class test_OnlinePromotion(unittest.TestCase):
 
     def test_6search_byPromotionType(self):
         u'''按促销类型查找'''
+<<<<<<< HEAD
+=======
+
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         driver=self.driver
 
@@ -509,9 +558,12 @@ class test_OnlinePromotion(unittest.TestCase):
 
 
 
+<<<<<<< HEAD
         
 
 
+=======
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     def edit_Promotion(self):
         '''进入促销修改'''
         driver=self.driver
@@ -529,14 +581,32 @@ class test_OnlinePromotion(unittest.TestCase):
 
         #修改
         self.clickButton(u"修改")
+<<<<<<< HEAD
         print findCss(driver,"#salePmOnlineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1) > div > div > div > div > div.datagrid-mask-msgn")
 
         #等待界面刷新
         WebWait(driver,"#salePmOnlineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1) > div > div > div > div > div.datagrid-mask-msgn")
+=======
+
+        #等待界面刷新
+        WebWait(driver,"#salePmOnlineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1) > div > div > div > div > div.datagrid-mask-msgn")
+
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='dptKey']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='dptKey']")
+        log.info(u"刷新完成！！！") 
+
+        
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
 
     def test_7modify_Promotion(self):
         u'''修改促销'''
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         driver=self.driver
 
@@ -547,10 +617,22 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_8modify_AddSuitObject(self):
         u'''添加适用对象'''
 
+<<<<<<< HEAD
+=======
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
         self.edit_Promotion()
+<<<<<<< HEAD
+=======
+
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='dptKey']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='dptKey']")
+        log.info(u"刷新完成！！！") 
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         #添加适用对象
         findCss(driver,"#salePmSuitObjectToolbar > a.easyui-linkbutton.addButton > span > span").click()
@@ -580,10 +662,23 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_9modify_DeleteSuitObject(self):
         u'''删除适用对象'''
 
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
         self.edit_Promotion()
+<<<<<<< HEAD
+=======
+        
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='dptKey']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='dptKey']")
+        log.info(u"刷新完成！！！") 
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #选择适用对象
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1)  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
@@ -597,6 +692,10 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_amodify_Add_TimeConstraint(self):
         u'''添加时段约束'''
 
+<<<<<<< HEAD
+=======
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -605,6 +704,14 @@ class test_OnlinePromotion(unittest.TestCase):
         #详情页-时段约束
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(2) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='startTime']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='startTime']")
+        log.info(u"刷新完成！！！")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #添加
         findCss(driver,"#salePmDtTimeToolbar > div > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -630,6 +737,10 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_bmodify_Delete_TimeConstraint(self):
         u'''删除时段约束'''
 
+<<<<<<< HEAD
+=======
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -639,6 +750,15 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(2) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='startTime']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs  table.datagrid-htable  td[field='startTime']")
+        log.info(u"刷新完成！！！")
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #选择一条记录
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(2) div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
@@ -654,6 +774,11 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_cmodify_AddPromotion_com(self):
         u'''添加促销商品'''
 
+<<<<<<< HEAD
+=======
+        log.info(u"开始执行用例...")
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -663,6 +788,14 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(3) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmDtPartAccordion  table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmDtPartAccordion table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！")
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #添加商品类型
         #添加
         findCss(driver,"#salePmDtPartToolbar > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -721,7 +854,12 @@ class test_OnlinePromotion(unittest.TestCase):
         
     def test_dmodify_DeletePromotion_com(self):
         u'''删除促销商品'''
+<<<<<<< HEAD
 
+=======
+        
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -731,6 +869,15 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(3) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmDtPartAccordion  table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmDtPartAccordion table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！")
+        
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #选择商品类别
         findCss(driver,"#salePmDtPartAccordion > div > div.panel.datagrid  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
@@ -762,6 +909,10 @@ class test_OnlinePromotion(unittest.TestCase):
         u'''添加换购品'''
 
         driver=self.driver
+<<<<<<< HEAD
+=======
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #进入促销修改
         self.edit_Promotion()
@@ -769,6 +920,13 @@ class test_OnlinePromotion(unittest.TestCase):
         #详情页-换购品
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(4) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmChangepurchaseAccordion  table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmChangepurchaseAccordion  table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #添加商品类型
         #添加
@@ -833,6 +991,11 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_fmodify_DeleteRedemption_com(self):
         u'''删除换购品'''
 
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -841,6 +1004,13 @@ class test_OnlinePromotion(unittest.TestCase):
         #详情页-换购品
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(4) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmChangepurchaseAccordion  table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmChangepurchaseAccordion  table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #选择商品类别
         findCss(driver,"#salePmChangepurchaseAccordion  div.panel.datagrid  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
@@ -874,6 +1044,11 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_gmodify_AddDonation(self):
         u'''添加赠品'''
 
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -883,6 +1058,15 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(5) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmDtGiftAccordion  table.datagrid-htable  td[field='giftType']").text
+        isRefreshed(driver,"#salePmDtGiftAccordion table.datagrid-htable  td[field='giftType']")
+        log.info(u"刷新完成！！！")
+        
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #添加商品类型
         #添加
         findCss(driver,"#salePmDtGiftToolbar > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -946,6 +1130,11 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_hmodify_DeleteDonation(self):
         u'''删除赠品'''
 
+<<<<<<< HEAD
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -954,6 +1143,14 @@ class test_OnlinePromotion(unittest.TestCase):
         #详情页-赠品设置
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(5) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmDtGiftAccordion  table.datagrid-htable  td[field='giftType']").text
+        isRefreshed(driver,"#salePmDtGiftAccordion table.datagrid-htable  td[field='giftType']")
+        log.info(u"刷新完成！！！")
+        
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #选择赠品类型
         findCss(driver,"#salePmDtGiftAccordion  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
@@ -985,6 +1182,10 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_imodify_AddTriggerPoint(self):
         u'''添加业务触发点'''
 
+<<<<<<< HEAD
+=======
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -994,6 +1195,14 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(6) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='seq']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='seq']")
+        log.info(u"刷新完成！！！")
+        
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #添加触发点
         #添加
         findCss(driver,"#salePmDtTrgToolbar > a.easyui-linkbutton.addButton > span > span").click()
@@ -1050,6 +1259,10 @@ class test_OnlinePromotion(unittest.TestCase):
     def test_jmodify_DeleteTriggerPoint(self):
         u'''删除业务触发点'''
 
+<<<<<<< HEAD
+=======
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -1059,6 +1272,14 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(6) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='seq']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='seq']")
+        log.info(u"刷新完成！！！") 
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #选择一个触发点
         findCss(driver,"#salePmDtTrgToolbar + div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
@@ -1074,7 +1295,12 @@ class test_OnlinePromotion(unittest.TestCase):
 
     def test_kmodify_AddPayment(self):
         u'''添加结算方式'''
+<<<<<<< HEAD
 
+=======
+        
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -1084,6 +1310,14 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(7) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='stmPayment']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='stmPayment']")
+        log.info(u"刷新完成！！！") 
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #添加结算方式
         #添加
         findCss(driver,"#salePmDtPaymentToolbar > div > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -1109,7 +1343,11 @@ class test_OnlinePromotion(unittest.TestCase):
         
     def test_ldelete_DeletePayment(self):
         u'''删除结算方式'''
+<<<<<<< HEAD
 
+=======
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入促销修改
@@ -1119,10 +1357,23 @@ class test_OnlinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOnlineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(7) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='stmPayment']").text
+        isRefreshed(driver,"#salePmOnlineHdTabs   table.datagrid-htable  td[field='stmPayment']")
+        log.info(u"刷新完成！！！") 
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #选择一个结算方式
         findCss(driver,"#salePmDtPaymentToolbar + div.datagrid-view > div.datagrid-view2 > div.datagrid-body  td[field='ck']").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #删除
         findCss(driver,"#salePmDtPaymentToolbar > div > a.easyui-linkbutton.removeDataButton > span > span").click()
@@ -1137,7 +1388,12 @@ class test_OnlinePromotion(unittest.TestCase):
 
     def test_mdelete_Promotion(self):
         u'''删除促销'''
+<<<<<<< HEAD
         
+=======
+
+        log.info(u"开始执行用例...")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         driver=self.driver
 
         #进入线上促销
@@ -1180,12 +1436,15 @@ class test_OnlinePromotion(unittest.TestCase):
 
         #终止
         self.clickButton(u"终止")
+<<<<<<< HEAD
 
         
         
 
     
         
+=======
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
     
     
@@ -1216,6 +1475,7 @@ if __name__=='__main__':
     
     #suite.addTest(test_OnlinePromotion('test_7modify_Promotion')) #修改促销
     
+<<<<<<< HEAD
     suite.addTest(test_OnlinePromotion('test_8modify_AddSuitObject')) #添加适用对象
     suite.addTest(test_OnlinePromotion('test_9modify_DeleteSuitObject')) #删除适用对象
 
@@ -1224,15 +1484,33 @@ if __name__=='__main__':
     
     suite.addTest(test_OnlinePromotion('test_cmodify_AddPromotion_com')) #添加促销商品
     suite.addTest(test_OnlinePromotion('test_dmodify_DeletePromotion_com')) #删除促销商品
+=======
+    #suite.addTest(test_OnlinePromotion('test_8modify_AddSuitObject')) #添加适用对象
+    #suite.addTest(test_OnlinePromotion('test_9modify_DeleteSuitObject')) #删除适用对象
+
+    #suite.addTest(test_OnlinePromotion('test_amodify_Add_TimeConstraint')) #添加时段约束
+    #suite.addTest(test_OnlinePromotion('test_bmodify_Delete_TimeConstraint')) #删除时段约束
+    
+    #suite.addTest(test_OnlinePromotion('test_cmodify_AddPromotion_com')) #添加促销商品
+    #suite.addTest(test_OnlinePromotion('test_dmodify_DeletePromotion_com')) #删除促销商品
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
     suite.addTest(test_OnlinePromotion('test_emodify_AddRedemption_com')) #添加换购品
     suite.addTest(test_OnlinePromotion('test_fmodify_DeleteRedemption_com')) #删除换购品
 
+<<<<<<< HEAD
     suite.addTest(test_OnlinePromotion('test_gmodify_AddDonation')) #添加赠品
     suite.addTest(test_OnlinePromotion('test_hmodify_DeleteDonation')) #删除赠品
 
     suite.addTest(test_OnlinePromotion('test_imodify_AddTriggerPoint')) #添加业务触发点
     suite.addTest(test_OnlinePromotion('test_jmodify_DeleteTriggerPoint')) #删除业务触发点
+=======
+    #suite.addTest(test_OnlinePromotion('test_gmodify_AddDonation')) #添加赠品
+    #suite.addTest(test_OnlinePromotion('test_hmodify_DeleteDonation')) #删除赠品
+
+    #suite.addTest(test_OnlinePromotion('test_imodify_AddTriggerPoint')) #添加业务触发点
+    #suite.addTest(test_OnlinePromotion('test_jmodify_DeleteTriggerPoint')) #删除业务触发点
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
     #suite.addTest(test_OnlinePromotion('test_kmodify_AddPayment')) #添加支付方式
     #suite.addTest(test_OnlinePromotion('test_ldelete_DeletePayment')) #删除支付方式
@@ -1247,9 +1525,15 @@ if __name__=='__main__':
     #执行测试
     
     runner=unittest.TextTestRunner()
+<<<<<<< HEAD
     runner.run(suite)
 
     #unittest.main()
+=======
+    #runner.run(suite)
+
+    unittest.main()
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
     
     logging.info('test_OnlinePromotion end--')

@@ -405,8 +405,14 @@ if __name__=='__main__':
     
     #执行测试
     runner=unittest.TextTestRunner()
+<<<<<<< HEAD
     runner.run(suite)
 
     #unittest.main()
+=======
+    #runner.run(suite)
+
+    unittest.main()
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     log.info('test_EmployeeInfo end--')
         

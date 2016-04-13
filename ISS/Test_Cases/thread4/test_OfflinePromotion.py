@@ -17,7 +17,11 @@ dom=xml.dom.minidom.parse('D:\\ISS\\Test_Data\\login.xml')
 root=dom.documentElement
 
 #促销编号
+<<<<<<< HEAD
 pro_code='PM201604070004'
+=======
+pro_code='PM201604110005'
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
 #促销主题
 pro_theme=u"促销"
@@ -98,6 +102,10 @@ class test_OfflinePromotion(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#salePmOfflineListRToolbar > a.easyui-linkbutton.findButton > span > span').click()
+<<<<<<< HEAD
+=======
+            WebWait(driver,"#content > div.tabs-panels.tabs-panels-noborder > div:nth-child(2) > div > div > div > div > div.datagrid-mask")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             sleep(1)
 
         elif button==u'查看' or button=='view':
@@ -542,6 +550,19 @@ class test_OfflinePromotion(unittest.TestCase):
 
         #修改
         self.clickButton(u"修改")
+<<<<<<< HEAD
+=======
+
+        #页面等待
+        print findCss(driver,"#salePmOfflineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1) > div > div > div > div > div.datagrid-mask-msgn").text
+        WebWait(driver,"#salePmOfflineHdTabs > div.tabs-panels.tabs-panels-noborder > div:nth-child(1) > div > div > div > div > div.datagrid-mask-msgn")
+
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineHdTabs   table.datagrid-htable  td[field='seq']").text
+        isRefreshed(driver,"#salePmOfflineHdTabs   table.datagrid-htable  td[field='seq']")
+        log.info(u"刷新完成！！！") 
+        
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
 
 
@@ -565,6 +586,14 @@ class test_OfflinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(5) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineDtChangepurchaseAccordion   table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmOfflineDtChangepurchaseAccordion   table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！") 
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #添加商品类型
         #添加
         findCss(driver,"#salePmOfflineDtChangePurchaseToolbar > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -726,6 +755,15 @@ class test_OfflinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(5) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineDtChangepurchaseAccordion   table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmOfflineDtChangepurchaseAccordion   table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！")
+        
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #选择商品类别
         findCss(driver,"#salePmOfflineDtChangepurchaseAccordion div.panel.datagrid  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
@@ -766,7 +804,16 @@ class test_OfflinePromotion(unittest.TestCase):
         #详情页-适用对象设置
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(2) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
         
+=======
+
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='dptKey']").text
+        isRefreshed(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='dptKey']")
+        log.info(u"刷新完成！！！") 
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         #添加适用对象
         findCss(driver,"#salePmOfflineSuitObjectToolbar > a.easyui-linkbutton.addButton > span > span").click()
@@ -798,6 +845,14 @@ class test_OfflinePromotion(unittest.TestCase):
         #详情页-适用对象设置
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(2) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='dptKey']").text
+        isRefreshed(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='dptKey']")
+        log.info(u"刷新完成！！！") 
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
 
         #选择适用对象
@@ -823,6 +878,14 @@ class test_OfflinePromotion(unittest.TestCase):
         #详情页-时段约束
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(3) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='startTime']").text
+        isRefreshed(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='startTime']")
+        log.info(u"刷新完成！！！") 
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #添加
         findCss(driver,"#salePmOfflineDtTimeToolbar > div > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -856,6 +919,14 @@ class test_OfflinePromotion(unittest.TestCase):
         #详情页-时段约束
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(3) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='startTime']").text
+        isRefreshed(driver,"#salePmOfflineHdTabs    table.datagrid-htable  td[field='startTime']")
+        log.info(u"刷新完成！！！") 
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #选择一条记录
         findCss(driver,"#salePmOfflineDtTimeToolbar + div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
@@ -882,6 +953,14 @@ class test_OfflinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(4) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineDtPartAccordion    table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmOfflineDtPartAccordion    table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！")
+        
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #添加商品类型
         #添加
         findCss(driver,"#salePmOfflineDtPartToolbar > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -950,6 +1029,15 @@ class test_OfflinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(4) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineDtPartAccordion    table.datagrid-htable  td[field='groupNum']").text
+        isRefreshed(driver,"#salePmOfflineDtPartAccordion    table.datagrid-htable  td[field='groupNum']")
+        log.info(u"刷新完成！！！")
+        
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #选择商品类别
         findCss(driver,"#salePmOfflineDtPartAccordion > div > div.panel.datagrid  div.datagrid-view > div.datagrid-view2 > div.datagrid-body > table td[field='ck']").click()
         sleep(0.5)
@@ -989,6 +1077,14 @@ class test_OfflinePromotion(unittest.TestCase):
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(6) > a > span.tabs-title").click()
         sleep(0.5)
 
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineHdTabs   table.datagrid-htable  td[field='stmPayment']").text
+        isRefreshed(driver,"#salePmOfflineHdTabs  table.datagrid-htable  td[field='stmPayment']")
+        log.info(u"刷新完成！！！")
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #添加结算方式
         #添加
         findCss(driver,"#salePmOfflineDtPaymentToolbar > div > a.easyui-linkbutton.appendDataButton > span > span").click()
@@ -1023,6 +1119,13 @@ class test_OfflinePromotion(unittest.TestCase):
         #详情页-结算方式
         findCss(driver,"#salePmOfflineHdTabs > div.tabs-header.tabs-header-plain.tabs-header-noborder > div.tabs-wrap > ul > li:nth-child(6) > a > span.tabs-title").click()
         sleep(0.5)
+<<<<<<< HEAD
+=======
+        log.info(u"等待界面刷新~~~")
+        #print findCss(driver,"#salePmOfflineHdTabs   table.datagrid-htable  td[field='stmPayment']").text
+        isRefreshed(driver,"#salePmOfflineHdTabs  table.datagrid-htable  td[field='stmPayment']")
+        log.info(u"刷新完成！！！")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
         #选择一个结算方式
         findCss(driver,"#salePmOfflineDtPaymentToolbar + div.datagrid-view > div.datagrid-view2 > div.datagrid-body  td[field='ck']").click()
@@ -1058,7 +1161,11 @@ class test_OfflinePromotion(unittest.TestCase):
 
         #删除
         self.clickButton(u"删除")
+<<<<<<< HEAD
         
+=======
+           
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
     def test_lmodify_ApprovalStatus(self):
         u'''修改审批状态'''
@@ -1085,7 +1192,11 @@ class test_OfflinePromotion(unittest.TestCase):
         self.clickButton(u"终止")
 
         
+<<<<<<< HEAD
         
+=======
+    
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
 
    
@@ -1105,6 +1216,7 @@ if __name__=='__main__':
     
     suite=unittest.TestSuite()
     
+<<<<<<< HEAD
     #suite.addTest(test_OfflinePromotion('test_0add_Promotion'))#添加促销方案
     
     #suite.addTest(test_OfflinePromotion('test_1search_byKeyWord'))#按关键字查找
@@ -1133,6 +1245,36 @@ if __name__=='__main__':
 
     #suite.addTest(test_OfflinePromotion('test_imodify_AddPayment'))#添加结算方式
     #suite.addTest(test_OfflinePromotion('test_jdelete_DeletePayment'))#删除结算方式
+=======
+    suite.addTest(test_OfflinePromotion('test_0add_Promotion'))#添加促销方案
+    
+    suite.addTest(test_OfflinePromotion('test_1search_byKeyWord'))#按关键字查找
+    suite.addTest(test_OfflinePromotion('test_2search_byActivityTime'))#按活动时间查找
+    suite.addTest(test_OfflinePromotion('test_3search_byApplicableObject'))#按适用对象查找
+    suite.addTest(test_OfflinePromotion('test_4search_byMakeDate'))#按制单日期查找
+    suite.addTest(test_OfflinePromotion('test_5search_byIdentifyDocument'))#按单据标识查找
+    suite.addTest(test_OfflinePromotion('test_6search_byPromotionType'))#按促销类型查找
+    suite.addTest(test_OfflinePromotion('test_7modify_Promotion'))#修改促销
+    
+    suite.addTest(test_OfflinePromotion('test_8modify_AddRedemption_com'))#添加换购品
+    
+    suite.addTest(test_OfflinePromotion('test_9modify_AddTriggerPoint'))#添加业务触发点
+    suite.addTest(test_OfflinePromotion('test_amodify_DeleteTriggerPoint'))#删除业务触发点
+
+    suite.addTest(test_OfflinePromotion('test_bmodify_DeleteRedemption_com'))#删除换购品
+
+    suite.addTest(test_OfflinePromotion('test_cmodify_AddSuitObject'))#添加适用对象
+    suite.addTest(test_OfflinePromotion('test_dmodify_DeleteSuitObject'))#删除适用对象
+
+    suite.addTest(test_OfflinePromotion('test_emodify_Add_TimeConstraint'))#添加时段约束
+    suite.addTest(test_OfflinePromotion('test_fmodify_Delete_TimeConstraint'))#删除时段约束
+
+    suite.addTest(test_OfflinePromotion('test_gmodify_AddPromotion_com'))#添加促销商品
+    suite.addTest(test_OfflinePromotion('test_hmodify_DeletePromotion_com'))#删除促销商品
+
+    suite.addTest(test_OfflinePromotion('test_imodify_AddPayment'))#添加结算方式
+    suite.addTest(test_OfflinePromotion('test_jdelete_DeletePayment'))#删除结算方式
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
     #suite.addTest(test_OfflinePromotion('test_kdelete_Promotion'))#删除促销
     
@@ -1141,9 +1283,15 @@ if __name__=='__main__':
     #执行测试
     
     runner=unittest.TextTestRunner()
+<<<<<<< HEAD
     # runner.run(suite)
 
     unittest.main()
+=======
+    runner.run(suite)
+
+    #unittest.main()
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
 
     
     log.info('test_DefaultExpress end--')

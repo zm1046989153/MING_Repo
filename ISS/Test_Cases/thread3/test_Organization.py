@@ -70,6 +70,10 @@ class test_Organization(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#stmDptToolbar > a.easyui-linkbutton.findButton > span > span').click()
+<<<<<<< HEAD
+=======
+            WebWait(driver,"#stmDptAccordion > div > div > div.datagrid-mask")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             sleep(1)
 
             

@@ -59,8 +59,14 @@ class test_Measure_WorkOrder(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#saleOrdMeasureHdToolbar > a.easyui-linkbutton.findButton > span > span').click()
+<<<<<<< HEAD
             sleep(1)
             WebWait(driver,"#saleOrdMeasureHdAccordion  div.datagrid-mask-msg")
+=======
+            WebWait(driver,"#saleOrdMeasureHdAccordion  div.datagrid-mask-msg")
+            sleep(1)
+            
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             
         elif button==u'查看' or button=='view':
             #点击“查看”按钮
@@ -111,7 +117,11 @@ class test_Measure_WorkOrder(unittest.TestCase):
             
             sleep(0.5)
             
+<<<<<<< HEAD
              #获取断言信息
+=======
+            #获取断言信息
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             success=driver.find_element_by_css_selector("body > div.panel.window.messager-window > div.messager-body.panel-body.panel-body-noborder.window-body > div:nth-child(2)")
             tip_text=success.text
             
@@ -128,6 +138,7 @@ class test_Measure_WorkOrder(unittest.TestCase):
             raise NameError('No Such Button,confirm again please')
 
 
+<<<<<<< HEAD
     def webwait(self):
         '''页面等待'''
         try:
@@ -141,6 +152,8 @@ class test_Measure_WorkOrder(unittest.TestCase):
 
         finally:
             self.driver.implicitly_wait(20)
+=======
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             
         
 
@@ -154,6 +167,11 @@ class test_Measure_WorkOrder(unittest.TestCase):
         self.to_measureWorkOrder()
 
         sleep(0.5)
+<<<<<<< HEAD
+=======
+
+        WebWait(driver,"#saleOrdMeasureHdAccordion  div.datagrid-mask-msg")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         #点击添加按钮
         self.clickButton(u"添加")
@@ -277,7 +295,11 @@ class test_Measure_WorkOrder(unittest.TestCase):
         #获取工单号
         global order_num
         order_num=driver.find_element_by_css_selector("div#saleOrdMeasureHdAccordion table.datagrid-btable td[field='fdBillCode']").text
+<<<<<<< HEAD
         print order_num
+=======
+        #print order_num
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         
     def test_1look_WorkOrder(self):
@@ -573,7 +595,11 @@ class test_Measure_WorkOrder(unittest.TestCase):
         #获取断言信息
         phs=driver.find_elements_by_css_selector("div#saleOrdMeasureHdAccordion table.datagrid-btable td[field='fdCargoMobile']")
         for ph in phs:
+<<<<<<< HEAD
             self.assertEqual(phone,ph.text)
+=======
+            self.assertIn(phone,ph.text)
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         
         
     def test_amodify_WorkOrder(self):
@@ -731,9 +757,15 @@ class test_Measure_WorkOrder(unittest.TestCase):
 if __name__=="__main__":
     #构造测试集
     suite=unittest.TestSuite()
+<<<<<<< HEAD
     suite.addTest(test_Measure_WorkOrder('test_0add_WorkOrder'))#添加量体工单
     
     #suite.addTest(test_Measure_WorkOrder('test_1look_WorkOrder'))#查看量体工单
+=======
+    #suite.addTest(test_Measure_WorkOrder('test_0add_WorkOrder'))#添加量体工单
+    
+    suite.addTest(test_Measure_WorkOrder('test_1look_WorkOrder'))#查看量体工单
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     
     #suite.addTest(test_Measure_WorkOrder('test_2search_ByWorkOrder'))#按工单号查找
     #suite.addTest(test_Measure_WorkOrder('test_3search_ByAppointmentTime'))#按预约时间查找

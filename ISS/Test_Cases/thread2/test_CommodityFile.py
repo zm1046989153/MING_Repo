@@ -68,7 +68,12 @@ class test_CommodityFile(unittest.TestCase):
         elif button==u'查找' or button=='search':
             #点击“查找”按钮
             driver.find_element_by_css_selector('#masPartHdToolbar > a.easyui-linkbutton.findButton').click()
+<<<<<<< HEAD
             WebWait(driver,"#masPartHdForm > div.datagrid-mask-msg")
+=======
+            #print findCss(driver,"#masPartHdAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msg").text
+            WebWait(driver,"#masPartHdAccordion > div:nth-child(1) > div.panel-body.accordion-body > div > div > div.datagrid-mask-msg")
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
             sleep(1)
             
             
@@ -365,6 +370,12 @@ class test_CommodityFile(unittest.TestCase):
         #点击“修改”
         self.clickButton(u'修改')
 
+<<<<<<< HEAD
+=======
+        #等待页面更新
+        WebWait(driver,"#masPartHdForm > div.datagrid-mask-msg")
+
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
         #修改商品名称
         new_name=u'new_zm衬衫（自动化）'
         nl=driver.find_element_by_css_selector("#masPartHdForm  tr:nth-child(2) > td:nth-child(13) > input")
@@ -449,8 +460,14 @@ if __name__=='__main__':
     
     #执行测试
     runner=unittest.TextTestRunner()
+<<<<<<< HEAD
     runner.run(suite)
 
     #unittest.main()
+=======
+    #runner.run(suite)
+
+    unittest.main()
+>>>>>>> f42e571cb703049d269bdd45eb3f2e3066c1380e
     log.info("test_CommodityFile end~~~")
         
