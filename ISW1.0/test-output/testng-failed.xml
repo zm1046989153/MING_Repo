@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <parameter name="ctmUsrKey" value="1069310"/>
+  <test name="Test">
+    <classes>
+      <class name="com.qishon.isw.apitest.GetCartListTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.qishon.isw.apitest.GetCartListTest">
+        <methods>
+          <include name="getDestnationTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.qishon.isw.apitest.GetCartListTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" preserve-order="false">
+ <!--<parameter name="ctmUsrKey" value="1069310"/>-->
+  <test name="Test">
+    <classes>
+      <class name="com.qishon.isw.apitest.GetCartListTest"/>
+      <!--<class name="com.qishon.isw.apitest.SaveOrdTest"/>-->
+      <!--<class name="com.qishon.isw.apitest.GetShippingTest"/>-->
+      <!--<class name="com.qishon.isw.apitest.GetAccessTokenTest"/>-->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
